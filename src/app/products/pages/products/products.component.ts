@@ -4,6 +4,7 @@ import { ProductsService } from '../../products.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormDialogComponent } from '../form-dialog/form-dialog.component';
 import { EditFormDialogComponent } from '../edit-form-dialog/edit-form-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-products',
@@ -11,7 +12,7 @@ import { EditFormDialogComponent } from '../edit-form-dialog/edit-form-dialog.co
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  _products: IProduct[];
+  _products: any;
   _displayedColumns: string[];
 
   constructor(private _productsService: ProductsService, public dialog: MatDialog) {
@@ -32,7 +33,7 @@ export class ProductsComponent implements OnInit {
 
   getAllProducts() {
     this._productsService.getAll().subscribe( (response: any) => {
-      this._products = response;
+      this._products = new MatTableDataSource(response);
       console.log(this._products);
     });
   }

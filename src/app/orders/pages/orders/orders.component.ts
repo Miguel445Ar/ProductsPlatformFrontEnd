@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { IOrder } from '../../models/IOrder';
 import { OrdersService } from '../../orders.service';
 import { OrderFormDialogComponent } from '../form-dialog/order-form-dialog.component';
@@ -11,7 +12,7 @@ import { OrdersEditFormDialogComponent } from '../orders-edit-form-dialog/orders
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  _orders: IOrder[];
+  _orders: any;
   _displayedColumns: string[];
 
   constructor(private _ordersService: OrdersService, public dialog: MatDialog) {
@@ -26,7 +27,8 @@ export class OrdersComponent implements OnInit {
 
   getAllOrders() {
     this._ordersService.getAll().subscribe((response: any) => {
-      this._orders = response;
+      this._orders = new MatTableDataSource(response);
+      console.log(this._orders);
     });
   }
   createOrder() {
