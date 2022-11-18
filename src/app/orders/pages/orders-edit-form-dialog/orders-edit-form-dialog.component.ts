@@ -28,10 +28,8 @@ export class OrdersEditFormDialogComponent implements OnInit {
       productsId: null
     };
     console.log(newOrder);
-    if(!this.orderItem.product.code || !this.orderItem.requestedUnits){
-      console.log("No entra");
+    if(!this.orderItem.product.code || !this.orderItem.requestedUnits)
       return;
-    }
     this._productsService.getByCode(this.orderItem.product.code).subscribe((response: any) => {
       newOrder.productsId = response.id;
       newOrder.totalPrice = parseFloat((response.unitPrice * newOrder.requestedUnits).toFixed(2));
@@ -39,9 +37,7 @@ export class OrdersEditFormDialogComponent implements OnInit {
       if(response.stock - newOrder.requestedUnits < 0) return;
       response.stock -= newOrder.requestedUnits;
       this._productsService.updateById(response.id,response).subscribe(() => {});
-      this._ordersService.updateById(this.orderItem.id,newOrder).subscribe((response: any) => {
-        console.log(response);
-      });
+      this._ordersService.updateById(this.orderItem.id,newOrder).subscribe((response: any) => {});
     });
   }
 

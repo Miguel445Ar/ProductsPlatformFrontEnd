@@ -31,9 +31,7 @@ export class OrderFormDialogComponent implements OnInit {
       if(response.stock - newOrder.requestedUnits < 0) return;
       response.stock -= newOrder.requestedUnits;
       this._productsService.updateById(response.id,response).subscribe(() => {});
-      this._ordersService.createItem(newOrder).subscribe((response: any) => {
-        console.log(response);
-      });
+      this._ordersService.createItem(newOrder).subscribe((response: any) => {});
     });
   }
 

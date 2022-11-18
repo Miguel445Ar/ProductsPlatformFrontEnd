@@ -18,9 +18,7 @@ export class FormDialogComponent implements OnInit {
   ngOnInit(): void {
   }
   addNewItem() {
-    this._productsService.createItem(this.productItem).subscribe((response: any) => {
-      console.log(response);
-    });
+    this._productsService.createItem(this.productItem).subscribe((response: any) => {});
   }
 
 }

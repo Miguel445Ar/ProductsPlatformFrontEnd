@@ -17,9 +17,7 @@ export class EditFormDialogComponent implements OnInit {
   ngOnInit(): void {
   }
   updateItem() {
-    this._productsService.updateById(this.productItem.id, this.productItem).subscribe((response: any) => {
-      console.log(response);
-    });
+    this._productsService.updateById(this.productItem.id, this.productItem).subscribe((response: any) => {});
   }
 
 }
