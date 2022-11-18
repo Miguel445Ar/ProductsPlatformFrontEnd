@@ -22,7 +22,7 @@ export class OrdersEditFormDialogComponent implements OnInit {
 
   updateItem() {
     const newOrder = {
-      totalPrice: 0.0,
+      totalPrice: 0.00,
       deliveryDate: this.orderItem.deliveryDate,
       requestedUnits: parseFloat(this.orderItem.requestedUnits),
       productsId: null

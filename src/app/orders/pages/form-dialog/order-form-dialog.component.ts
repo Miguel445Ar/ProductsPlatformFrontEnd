@@ -18,7 +18,7 @@ export class OrderFormDialogComponent implements OnInit {
   }
   addNewItem() {
     const newOrder = {
-      totalPrice: 0.0,
+      totalPrice: 0.00,
       deliveryDate: this.orderItem.deliveryDate,
       requestedUnits: parseFloat(this.orderItem.requestedUnits),
       productsId: null
