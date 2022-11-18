@@ -19,6 +19,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { EditFormDialogComponent } from './products/pages/edit-form-dialog/edit-form-dialog.component';
+import { OrderFormDialogComponent } from './orders/pages/form-dialog/order-form-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { OrdersEditFormDialogComponent } from './orders/pages/orders-edit-form-dialog/orders-edit-form-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +30,8 @@ import { EditFormDialogComponent } from './products/pages/edit-form-dialog/edit-
     NavigationComponent,
     FormDialogComponent,
     EditFormDialogComponent,
+    OrderFormDialogComponent,
+    OrdersEditFormDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { EditFormDialogComponent } from './products/pages/edit-form-dialog/edit-
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

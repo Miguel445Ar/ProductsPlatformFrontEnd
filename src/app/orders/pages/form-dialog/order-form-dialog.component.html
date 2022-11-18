@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>New Order</h2>
+<mat-dialog-content>
+  <div role="form" class="dialog-form">
+    <mat-form-field>
+      <mat-label>Requested Units</mat-label>
+      <input matInput required type="number" min="1" [(ngModel)]="this.orderItem.requestedUnits" name="total price">
+      <mat-hint align="end">Type a valid quantity</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Product Code</mat-label>
+      <input matInput required maxlength="30" [(ngModel)]="this.orderItem.productCode" name="product code">
+      <mat-hint align="end">Max 30 characters</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Delivery Date</mat-label>
+      <input matInput required maxlength="30" [(ngModel)]="this.orderItem.deliveryDate" name="delivery date">
+      <mat-hint align="end">Enter a valid date</mat-hint>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="addNewItem()"  mat-dialog-close="true">Save</button>
+  <button mat-raised-button mat-dialog-close="true">Cancel</button>
+</mat-dialog-actions>

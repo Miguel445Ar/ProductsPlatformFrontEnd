@@ -1,5 +1,4 @@
-export interface IProduct {
-    id: number,
+export interface ISaveProduct {
     code: string,
     name: string,
     description: string;

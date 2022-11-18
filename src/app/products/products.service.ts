@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpCommon } from '../core/http-common';
 import {catchError, Observable, retry, throwError} from "rxjs";
 import { IProduct } from './models/IProduct';
+import { ISaveProduct } from './models/ISaveProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +25,22 @@ export class ProductsService {
     return this._http.get<IProduct>(this._httpOptions.basePath,this._httpOptions.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-  createItem(item: any): Observable<IProduct> {
-    return this._http.post<IProduct>(this._httpOptions.basePath,JSON.stringify(item),this._httpOptions.httpOptions)
+  createItem(item: any): Observable<ISaveProduct> {
+    return this._http.post<ISaveProduct>(this._httpOptions.basePath,JSON.stringify(item),this._httpOptions.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   deleteItem(id: number): Observable<IProduct> {
     return this._http.delete<IProduct>(`${this._httpOptions.basePath}/${id}`, this._httpOptions.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-  updateById(id: number, item: any): Observable<IProduct> {
-    return this._http.put<IProduct>(`${this._httpOptions.basePath}/${id}`, JSON.stringify(item), this._httpOptions.httpOptions)
+  updateById(id: number, item: any): Observable<ISaveProduct> {
+    return this._http.put<ISaveProduct>(`${this._httpOptions.basePath}/${id}`, JSON.stringify(item), this._httpOptions.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
+  }
+  getByCode(code: string) {
+    return this._http.get<IProduct>(`${this._httpOptions.basePath}/getproductbycode/${code}`,this._httpOptions.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 }
