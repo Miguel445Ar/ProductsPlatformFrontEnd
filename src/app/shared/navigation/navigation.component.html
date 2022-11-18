@@ -1,0 +1,16 @@
+<mat-toolbar class="nav-menu">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Inventory Platform</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button class="nav-btn" aria-label="Example icon-button with heart icon">
+      <a routerLink="/products">Products</a>
+    </button>
+    <button mat-raised-button class="nav-btn" aria-label="Example icon-button with share icon">
+      <a routerLink="/orders">Orders</a>
+    </button>
+  </mat-toolbar>
+  <div role="main" class="container">
+    <router-outlet></router-outlet>
+  </div>
